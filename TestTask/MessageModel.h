@@ -19,7 +19,7 @@ typedef enum : NSUInteger {
 
 @interface MessageModel : NSObject
 
-@property (nonatomic, readonly) NSArray *messages;
+@property (nonatomic, readonly, retain) NSArray *messages;
 @property (nonatomic, assign) id<MessageModelDelegate> delegate;
 
 - (void)sendMessageOfType:(NSInteger)type content:(NSString *)content boolValue:(BOOL)boolValue;

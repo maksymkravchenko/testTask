@@ -16,7 +16,6 @@
 		9F92EBF31DAC34FE00C4F450 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F92EBF21DAC34FE00C4F450 /* Assets.xcassets */; };
 		9F92EBF61DAC34FE00C4F450 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F92EBF41DAC34FE00C4F450 /* LaunchScreen.storyboard */; };
 		9F92EBFF1DAC425900C4F450 /* WebSocketService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F92EBFE1DAC425900C4F450 /* WebSocketService.m */; };
-		9F92EC021DAC47C600C4F450 /* Logger.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F92EC011DAC47C600C4F450 /* Logger.m */; };
 		9F92EC071DAC517800C4F450 /* InfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F92EC061DAC517800C4F450 /* InfoTableViewCell.m */; };
 		9F92EC0A1DAC555100C4F450 /* InputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F92EC091DAC555100C4F450 /* InputViewController.m */; };
 		9F92EC0D1DAC556100C4F450 /* SendingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F92EC0C1DAC556100C4F450 /* SendingViewController.m */; };
@@ -25,6 +24,7 @@
 		9F92EC1E1DAD4C6200C4F450 /* EchoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F92EC1D1DAD4C6200C4F450 /* EchoModel.m */; };
 		9F92EC2A1DAD504900C4F450 /* Message+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F92EC271DAD504900C4F450 /* Message+CoreDataClass.m */; };
 		9F92EC2B1DAD504900C4F450 /* Message+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F92EC291DAD504900C4F450 /* Message+CoreDataProperties.m */; };
+		9F92EC2E1DAD98A500C4F450 /* ReceivedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F92EC2D1DAD98A500C4F450 /* ReceivedTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,8 +44,6 @@
 		9F92EBF71DAC34FE00C4F450 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F92EBFD1DAC425900C4F450 /* WebSocketService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebSocketService.h; sourceTree = "<group>"; };
 		9F92EBFE1DAC425900C4F450 /* WebSocketService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebSocketService.m; sourceTree = "<group>"; };
-		9F92EC001DAC47C600C4F450 /* Logger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Logger.h; sourceTree = "<group>"; };
-		9F92EC011DAC47C600C4F450 /* Logger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Logger.m; sourceTree = "<group>"; };
 		9F92EC051DAC517800C4F450 /* InfoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoTableViewCell.h; sourceTree = "<group>"; };
 		9F92EC061DAC517800C4F450 /* InfoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoTableViewCell.m; sourceTree = "<group>"; };
 		9F92EC081DAC555100C4F450 /* InputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputViewController.h; sourceTree = "<group>"; };
@@ -62,6 +60,8 @@
 		9F92EC271DAD504900C4F450 /* Message+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Message+CoreDataClass.m"; sourceTree = "<group>"; };
 		9F92EC281DAD504900C4F450 /* Message+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Message+CoreDataProperties.h"; sourceTree = "<group>"; };
 		9F92EC291DAD504900C4F450 /* Message+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Message+CoreDataProperties.m"; sourceTree = "<group>"; };
+		9F92EC2C1DAD98A500C4F450 /* ReceivedTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReceivedTableViewCell.h; sourceTree = "<group>"; };
+		9F92EC2D1DAD98A500C4F450 /* ReceivedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReceivedTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +140,8 @@
 			children = (
 				9F92EC051DAC517800C4F450 /* InfoTableViewCell.h */,
 				9F92EC061DAC517800C4F450 /* InfoTableViewCell.m */,
+				9F92EC2C1DAD98A500C4F450 /* ReceivedTableViewCell.h */,
+				9F92EC2D1DAD98A500C4F450 /* ReceivedTableViewCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -149,8 +151,6 @@
 			children = (
 				9F92EBFD1DAC425900C4F450 /* WebSocketService.h */,
 				9F92EBFE1DAC425900C4F450 /* WebSocketService.m */,
-				9F92EC001DAC47C600C4F450 /* Logger.h */,
-				9F92EC011DAC47C600C4F450 /* Logger.m */,
 				9F92EC121DAC579000C4F450 /* MessageModel.h */,
 				9F92EC131DAC579000C4F450 /* MessageModel.m */,
 				9F92EC1C1DAD4C6200C4F450 /* EchoModel.h */,
@@ -311,10 +311,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F92EBF11DAC34FE00C4F450 /* TestTask.xcdatamodeld in Sources */,
-				9F92EC021DAC47C600C4F450 /* Logger.m in Sources */,
 				9F92EBEB1DAC34FE00C4F450 /* ViewController.m in Sources */,
 				9F92EC2B1DAD504900C4F450 /* Message+CoreDataProperties.m in Sources */,
 				9F92EBFF1DAC425900C4F450 /* WebSocketService.m in Sources */,
+				9F92EC2E1DAD98A500C4F450 /* ReceivedTableViewCell.m in Sources */,
 				9F92EBE81DAC34FE00C4F450 /* AppDelegate.m in Sources */,
 				9F92EC1E1DAD4C6200C4F450 /* EchoModel.m in Sources */,
 				9F92EBE51DAC34FE00C4F450 /* main.m in Sources */,

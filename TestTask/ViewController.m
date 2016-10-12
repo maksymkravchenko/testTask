@@ -27,9 +27,14 @@
 	
 	for (id vc in self.childViewControllers)
 	{
-		if ([vc isKindOfClass:[InputViewController class]] || [vc isKindOfClass:[SendingViewController class]])
+		if ([vc isKindOfClass:[InputViewController class]])
 		{
 			[vc setMesssageModel:_messsageModel];
+		}
+		else if ([vc isKindOfClass:[SendingViewController class]])
+		{
+			[vc setMesssageModel:_messsageModel];
+			_messsageModel.delegate = vc;
 		}
 	}
 }

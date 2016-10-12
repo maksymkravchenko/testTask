@@ -13,7 +13,7 @@
 
 @interface MessageModel ()
 
-@property (nonatomic) NSMutableArray *mutableMessages;
+@property (nonatomic, retain) NSMutableArray *mutableMessages;
 
 @end
 
@@ -57,6 +57,7 @@
 	newMessage.type = type;
 	newMessage.content = content;
 	newMessage.boolValue = boolValue;
+	newMessage.updateDate = [NSDate date].timeIntervalSince1970;
 	
 	[self.appDelegate saveContext];
 }
@@ -71,7 +72,15 @@
 		{
 			if ([message isKindOfClass:[Message class]])
 			{
-				[self.mutableMessages addObject:message];
+				if (self.mutableMessages == nil)
+				{
+					self.mutableMessages = @[message].mutableCopy;
+				}
+				else
+				{
+					[self.mutableMessages addObject:message];
+				}
+				
 				[self.delegate model:self didUpdateMessagesAtIndex:self.messages.count - 1];
 				
 				[self sendMessage:message];
@@ -84,20 +93,37 @@
 {
 	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
 		id encodedMessage = nil;
-		if (message.type == kMessageTypeJSON)
+		
+		NSMutableDictionary *userInfo = @{}.mutableCopy;
+		userInfo[@"content"] = message.content != nil ? message.content : @"";
+		userInfo[@"boolValue"] = @(message.boolValue);
+		userInfo[@"updateDate"] = @(message.updateDate);
+		
+		if (message.type == kMessageTypeXML)
 		{
 			
+			NSMutableData *archiveData = [NSMutableData data];
+			NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:archiveData];
+			archiver.outputFormat = NSPropertyListXMLFormat_v1_0;
+			[archiver encodeRootObject:userInfo];
+			[archiver finishEncoding];
+			encodedMessage = archiveData;
+
+			NSString *xmlString = [NSString stringWithFormat:@"<?xml version=\"1.0\"?> <message> <content>%@</content><boolValue>%d</boolValue><updateDate>%lld</updateDate>	</message>", message.content, message.boolValue, message.updateDate];
+			encodedMessage = [xmlString dataUsingEncoding:NSUTF8StringEncoding];
 		}
-		else if (message.type == kMessageTypeXML)
+		else if (message.type == kMessageTypeJSON)
 		{
-			
+			encodedMessage = [NSJSONSerialization dataWithJSONObject:userInfo options:0 error:NULL];
 		}
 		else
 		{
-			
+			encodedMessage = [NSKeyedArchiver archivedDataWithRootObject:userInfo];
 		}
 		
-		[self.appDelegate.webSocketService sendMessage:encodedMessage]; //TODO:
+		dispatch_async(dispatch_get_main_queue(), ^{
+			[self.appDelegate.webSocketService sendMessage:encodedMessage];
+		});
 	});
 }
 

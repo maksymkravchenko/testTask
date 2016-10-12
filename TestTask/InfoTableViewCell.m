@@ -30,12 +30,9 @@
 
 - (void)setMessageSend:(BOOL)messageSend
 {
-	if (_messageSend != messageSend)
-	{
-		_messageSend = messageSend;
+	_messageSend = messageSend;
 		
-		self.messageSentLabel.text = _messageSend ? @"Sent" : @"Not sent";
-	}
+	self.messageSentLabel.text = _messageSend ? @"Sent" : @"Not sent";
 }
 
 - (void)dealloc

@@ -12,6 +12,6 @@
 
 @interface InputViewController : UIViewController
 
-@property (nonatomic, strong) MessageModel *messsageModel;
+@property (nonatomic, retain) MessageModel *messsageModel;
 
 @end
