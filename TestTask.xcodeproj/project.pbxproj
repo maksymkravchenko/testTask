@@ -21,7 +21,6 @@
 		9F92EC0D1DAC556100C4F450 /* SendingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F92EC0C1DAC556100C4F450 /* SendingViewController.m */; };
 		9F92EC141DAC579000C4F450 /* MessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F92EC131DAC579000C4F450 /* MessageModel.m */; };
 		9F92EC151DAC607800C4F450 /* ReceivedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F92EC0F1DAC556C00C4F450 /* ReceivedViewController.m */; };
-		9F92EC1E1DAD4C6200C4F450 /* EchoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F92EC1D1DAD4C6200C4F450 /* EchoModel.m */; };
 		9F92EC2A1DAD504900C4F450 /* Message+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F92EC271DAD504900C4F450 /* Message+CoreDataClass.m */; };
 		9F92EC2B1DAD504900C4F450 /* Message+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F92EC291DAD504900C4F450 /* Message+CoreDataProperties.m */; };
 		9F92EC2E1DAD98A500C4F450 /* ReceivedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F92EC2D1DAD98A500C4F450 /* ReceivedTableViewCell.m */; };
@@ -54,8 +53,6 @@
 		9F92EC0F1DAC556C00C4F450 /* ReceivedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReceivedViewController.m; sourceTree = "<group>"; };
 		9F92EC121DAC579000C4F450 /* MessageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageModel.h; sourceTree = "<group>"; };
 		9F92EC131DAC579000C4F450 /* MessageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageModel.m; sourceTree = "<group>"; };
-		9F92EC1C1DAD4C6200C4F450 /* EchoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EchoModel.h; sourceTree = "<group>"; };
-		9F92EC1D1DAD4C6200C4F450 /* EchoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EchoModel.m; sourceTree = "<group>"; };
 		9F92EC261DAD504900C4F450 /* Message+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Message+CoreDataClass.h"; sourceTree = "<group>"; };
 		9F92EC271DAD504900C4F450 /* Message+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Message+CoreDataClass.m"; sourceTree = "<group>"; };
 		9F92EC281DAD504900C4F450 /* Message+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Message+CoreDataProperties.h"; sourceTree = "<group>"; };
@@ -153,8 +150,6 @@
 				9F92EBFE1DAC425900C4F450 /* WebSocketService.m */,
 				9F92EC121DAC579000C4F450 /* MessageModel.h */,
 				9F92EC131DAC579000C4F450 /* MessageModel.m */,
-				9F92EC1C1DAD4C6200C4F450 /* EchoModel.h */,
-				9F92EC1D1DAD4C6200C4F450 /* EchoModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -316,7 +311,6 @@
 				9F92EBFF1DAC425900C4F450 /* WebSocketService.m in Sources */,
 				9F92EC2E1DAD98A500C4F450 /* ReceivedTableViewCell.m in Sources */,
 				9F92EBE81DAC34FE00C4F450 /* AppDelegate.m in Sources */,
-				9F92EC1E1DAD4C6200C4F450 /* EchoModel.m in Sources */,
 				9F92EBE51DAC34FE00C4F450 /* main.m in Sources */,
 				9F92EC0D1DAC556100C4F450 /* SendingViewController.m in Sources */,
 				9F92EC151DAC607800C4F450 /* ReceivedViewController.m in Sources */,
