@@ -12,7 +12,7 @@
 
 @interface SendingViewController : UIViewController
 
-@property (nonatomic, strong) MessageModel *messsageModel;
+@property (retain, nonatomic) MessageModel *messsageModel;
 
 
 @end

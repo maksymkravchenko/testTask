@@ -29,8 +29,11 @@ static NSString *const kSendingViewControllerCellReusableId = @"InfoCell";
 	self.tableView.rowHeight = UITableViewAutomaticDimension;
 }
 
-- (void)dealloc {
+- (void)dealloc
+{
+	[_messsageModel release];
 	[_tableView release];
+	
 	[super dealloc];
 }
 
