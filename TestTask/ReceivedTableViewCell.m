@@ -40,7 +40,7 @@
 	if (![_date isEqual:date])
 	{
 		[_date release];
-		_date = date;
+		_date = [date retain];
 		
 		NSDateFormatter *dateFormatter = [[NSDateFormatter new] autorelease];
 		dateFormatter.dateFormat = @"HH:mm";
@@ -62,12 +62,9 @@
 
 - (void)setBooleanValue:(BOOL)booleanValue
 {
-	if (_booleanValue != booleanValue)
-	{
-		_booleanValue = booleanValue;
-		
-		self.boolValueLabel.text = [NSString stringWithFormat:@"BoolValue = %@", _booleanValue ? @"YES" : @"NO"];
-	}
+	_booleanValue = booleanValue;
+	
+	self.boolValueLabel.text = [NSString stringWithFormat:@"BoolValue = %@", _booleanValue ? @"YES" : @"NO"];
 }
 
 @end
