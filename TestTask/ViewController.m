@@ -13,7 +13,7 @@
 
 @interface ViewController ()
 
-@property (nonatomic, readonly, strong) MessageModel *messsageModel;
+@property (retain, nonatomic) MessageModel *messsageModel;
 
 @end
 
@@ -23,7 +23,8 @@
 {
 	[super viewDidLoad];
 	
-	_messsageModel = [MessageModel new];
+	self.messsageModel = [[MessageModel new] autorelease];
+
 	
 	for (id vc in self.childViewControllers)
 	{
@@ -34,7 +35,7 @@
 		else if ([vc isKindOfClass:[SendingViewController class]])
 		{
 			[vc setMesssageModel:_messsageModel];
-			_messsageModel.delegate = vc;
+			self.messsageModel.delegate = vc;
 		}
 	}
 }

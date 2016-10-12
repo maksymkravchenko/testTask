@@ -51,6 +51,7 @@ static NSString *const kWetSockerEchoPath = @"wss://echo.websocket.org";
 	[_delegate release];
 	[_webSocket release];
 	[_deserializationDelegate release];
+	[_timer invalidate];
 	[_timer release];
 	[_currentElement release];
 	[_parsedDict release];
@@ -114,7 +115,7 @@ static NSString *const kWetSockerEchoPath = @"wss://echo.websocket.org";
 		}
 		else
 		{
-			NSString *string = [[NSString alloc] initWithData:message encoding:NSUTF8StringEncoding];
+			NSString *string = [[[NSString alloc] initWithData:message encoding:NSUTF8StringEncoding] autorelease];
 			
 			if (string == nil) //binary Data
 			{
@@ -125,6 +126,8 @@ static NSString *const kWetSockerEchoPath = @"wss://echo.websocket.org";
 				dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
 					NSXMLParser *parser = [[[NSXMLParser alloc] initWithData:message] autorelease];
 					parser.delegate = self;
+					
+					self.parsedDict = [@{}.mutableCopy autorelease];
 					if ([parser parse])
 					{
 						dispatch_async(dispatch_get_main_queue(), ^{
@@ -182,11 +185,6 @@ static NSString *const kWetSockerEchoPath = @"wss://echo.websocket.org";
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
 {
-	if (self.parsedDict == nil)
-	{
-		self.parsedDict = [@{}.mutableCopy autorelease];
-	}
-	
 	if (self.currentElement != nil)
 	{
 		[self.parsedDict setObject:string forKey:self.currentElement];
@@ -211,10 +209,10 @@ static NSString *const kWetSockerEchoPath = @"wss://echo.websocket.org";
 {
 	NSDateFormatter *dateFormatter = [[NSDateFormatter new] autorelease];
 	dateFormatter.dateFormat = @"HH:mm";
-	NSMutableString *result = [dateFormatter stringFromDate:[NSDate date]].mutableCopy;
+	NSMutableString *result = [[dateFormatter stringFromDate:[NSDate date]].mutableCopy autorelease];
 	[result appendString:@"\n"];
 	[result appendString:string];
-	return result.copy;
+	return [result.copy autorelease];
 }
 
 @end

@@ -75,7 +75,7 @@
 {
 	if (self.loggerText == nil)
 	{
-		self.loggerText = [NSMutableString new];
+		self.loggerText = [[NSMutableString new] autorelease];
 	}
 	
 	if (self.loggerText.length > 0)
@@ -83,7 +83,7 @@
 		[self.loggerText appendString:@"\n"];
 	}
 	[self.loggerText appendString:descriptionText];
-	self.loggerTextView.text = self.loggerText.copy;
+	self.loggerTextView.text = [self.loggerText.copy autorelease];
 }
 
 - (void)webSocket:(WebSocketService *)webSocket didChangeWithState:(WebSocketState)state

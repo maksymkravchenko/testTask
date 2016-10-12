@@ -33,7 +33,7 @@
 
 - (NSArray *)messages
 {
-	return self.mutableMessages.copy;
+	return [self.mutableMessages.copy autorelease];
 }
 
 - (AppDelegate *)appDelegate
@@ -103,21 +103,13 @@
 	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
 		id encodedMessage = nil;
 		
-		NSMutableDictionary *userInfo = @{}.mutableCopy;
+		NSMutableDictionary *userInfo = [@{}.mutableCopy autorelease];
 		userInfo[@"content"] = message.content != nil ? message.content : @"";
 		userInfo[@"boolValue"] = @(message.boolValue);
 		userInfo[@"updateDate"] = @(message.updateDate);
 		
 		if (message.type == kMessageTypeXML)
 		{
-			
-			NSMutableData *archiveData = [NSMutableData data];
-			NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:archiveData];
-			archiver.outputFormat = NSPropertyListXMLFormat_v1_0;
-			[archiver encodeRootObject:userInfo];
-			[archiver finishEncoding];
-			encodedMessage = archiveData;
-
 			NSString *xmlString = [NSString stringWithFormat:@"<?xml version=\"1.0\"?> <message> <content>%@</content><boolValue>%d</boolValue><updateDate>%lld</updateDate>	</message>", message.content, message.boolValue, message.updateDate];
 			encodedMessage = [xmlString dataUsingEncoding:NSUTF8StringEncoding];
 		}
