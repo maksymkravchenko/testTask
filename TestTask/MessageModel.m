@@ -26,6 +26,7 @@
 	if (self != nil)
 	{
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateModelOnCoreDataChange:) name:NSManagedObjectContextObjectsDidChangeNotification object:nil];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateDeliveredMessage:) name:@"Delivered" object:nil];
 	}
 	return self;
 }
@@ -43,7 +44,8 @@
 - (void)dealloc
 {
 	[[NSNotificationCenter defaultCenter] removeObserver:self name:NSManagedObjectContextObjectsDidChangeNotification object:nil];
-	
+	[[NSNotificationCenter defaultCenter] removeObserver:self name:@"Delivered" object:nil];
+
 	[_mutableMessages release];
 	[_delegate release];
 	
@@ -81,12 +83,19 @@
 					[self.mutableMessages addObject:message];
 				}
 				
-				[self.delegate model:self didUpdateMessagesAtIndex:self.messages.count - 1];
+				[self.delegate modelDidAddMessage:self];
 				
 				[self sendMessage:message];
 			}
 		}
 	}
+}
+
+- (void)updateDeliveredMessage:(NSNotification *)notification
+{
+	Message *message = self.messages.lastObject;
+	message.sent = YES;
+	[self.delegate model:self didUpdateMessagesAtIndex:self.messages.count - 1];
 }
 
 - (void)sendMessage:(Message *)message

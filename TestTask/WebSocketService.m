@@ -103,6 +103,8 @@ static NSString *const kWetSockerEchoPath = @"wss://echo.websocket.org";
 {
 	if ([message isKindOfClass:[NSData class]])
 	{
+		[[NSNotificationCenter defaultCenter] postNotificationName:@"Delivered" object:nil];
+		
 		NSError *error = nil;
 		
 		NSDictionary *result = [NSJSONSerialization JSONObjectWithData:message options:0 error:&error];
@@ -185,7 +187,15 @@ static NSString *const kWetSockerEchoPath = @"wss://echo.websocket.org";
 		self.parsedDict = [@{}.mutableCopy autorelease];
 	}
 	
-	[self.parsedDict setObject:string forKey:self.currentElement];
+	if (self.currentElement != nil)
+	{
+		[self.parsedDict setObject:string forKey:self.currentElement];
+	}
+}
+
+- (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
+{
+	self.currentElement = nil;
 }
 
 #pragma mark - Util

@@ -145,25 +145,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="187.5" height="333.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="69" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Vmi-IW-2Sr">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Vmi-IW-2Sr">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" white="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="InfoCell" id="vmc-Gk-Fw3" customClass="InfoTableViewCell">
-                                        <rect key="frame" x="0.0" y="28" width="187.5" height="69"/>
+                                        <rect key="frame" x="0.0" y="28" width="187.5" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vmc-Gk-Fw3" id="6Vn-Dn-41b">
-                                            <frame key="frameInset" width="187.5" height="68"/>
+                                            <frame key="frameInset" width="187.5" height="59"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" ambiguous="YES" misplaced="YES" text="&lt; Message &gt;" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EWf-2H-q5p">
-                                                    <frame key="frameInset" minX="13" minY="13" width="172" height="15"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="&lt; Message &gt;" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EWf-2H-q5p">
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="&lt; Send &gt;" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="the-5l-t31">
-                                                    <frame key="frameInset" minX="134" minY="34" width="44" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="&lt; Send &gt;" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="the-5l-t31">
                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                     <color key="textColor" red="1" green="0.0" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -172,10 +170,10 @@
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="the-5l-t31" secondAttribute="trailing" constant="10" id="Eip-aE-gcD"/>
                                                 <constraint firstItem="EWf-2H-q5p" firstAttribute="leading" secondItem="6Vn-Dn-41b" secondAttribute="leadingMargin" constant="5" id="Nq6-0W-80A"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="the-5l-t31" secondAttribute="bottom" constant="5" id="OWx-sn-vJe"/>
                                                 <constraint firstItem="EWf-2H-q5p" firstAttribute="trailing" secondItem="6Vn-Dn-41b" secondAttribute="trailingMargin" constant="5" id="QPG-dP-tb2"/>
                                                 <constraint firstItem="EWf-2H-q5p" firstAttribute="top" secondItem="6Vn-Dn-41b" secondAttribute="topMargin" constant="5" id="RSv-hQ-cne"/>
-                                                <constraint firstItem="the-5l-t31" firstAttribute="top" secondItem="EWf-2H-q5p" secondAttribute="bottom" constant="6" id="aYU-hJ-zHy"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="the-5l-t31" secondAttribute="bottom" constant="6" id="U0A-43-cgC"/>
+                                                <constraint firstItem="the-5l-t31" firstAttribute="top" secondItem="EWf-2H-q5p" secondAttribute="bottom" constant="5" id="vnO-iI-fUd"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>

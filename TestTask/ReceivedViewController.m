@@ -28,7 +28,8 @@ static NSString *const kReceivedViewControllerCellReusableId = @"ReceivedCell";
     [super viewDidLoad];
 	
 	self.tableView.estimatedRowHeight = 44.0;
-	
+	self.tableView.rowHeight = UITableViewAutomaticDimension;
+
 	AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
 	appDelegate.webSocketService.deserializationDelegate = self;
 	

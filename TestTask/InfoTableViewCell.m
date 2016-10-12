@@ -32,7 +32,7 @@
 {
 	_messageSend = messageSend;
 		
-	self.messageSentLabel.text = _messageSend ? @"Sent" : @"Not sent";
+	self.messageSentLabel.text = _messageSend ? @"Sent" : @"Not sent \n asd f \n adfn adf ";
 }
 
 - (void)dealloc

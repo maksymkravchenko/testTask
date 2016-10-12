@@ -29,5 +29,6 @@ typedef enum : NSUInteger {
 @protocol MessageModelDelegate <NSObject>
 
 - (void)model:(MessageModel *)model didUpdateMessagesAtIndex:(NSInteger)index;
+- (void)modelDidAddMessage:(MessageModel *)model;
 
 @end

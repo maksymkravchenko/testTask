@@ -26,6 +26,7 @@ static NSString *const kSendingViewControllerCellReusableId = @"InfoCell";
     [super viewDidLoad];
 	
 	self.tableView.estimatedRowHeight = 70.0;
+	self.tableView.rowHeight = UITableViewAutomaticDimension;
 }
 
 - (void)dealloc {
@@ -69,6 +70,11 @@ static NSString *const kSendingViewControllerCellReusableId = @"InfoCell";
 #pragma mark - MessageModelDelegate
 
 - (void)model:(MessageModel *)model didUpdateMessagesAtIndex:(NSInteger)index
+{
+	[self.tableView reloadData];
+}
+
+- (void)modelDidAddMessage:(MessageModel *)model
 {
 	[self.tableView beginUpdates];
 	
